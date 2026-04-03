@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FileRepair Pro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <p class="eyebrow">Diagnostic et reparation assistes</p>
+                    <h1>Analyse d'abord, reparation ensuite.</h1>
+                </div>
+                <div class="hero-side">
+                    <p class="hero-copy">
+                        Depose un fichier corrompu pour obtenir un rapport detaille, des recommandations et lancer
+                        ensuite la meilleure strategie de recuperation.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <main class="layout">
+            <section class="workspace">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">+</div>
+                    <h2>Glisser-deposer ou selectionner un fichier</h2>
+                    <p>
+                        Le fichier est d'abord envoye puis analyse avant toute reparation.
+                    </p>
+                    <p class="upload-hint">
+                        Formats: PDF, Word, Excel, videos, images, archives, texte, JSON, XML, HTML, CSV, logs, Markdown.
+                    </p>
+                    <input type="file" id="fileInput" hidden>
+                </div>
+
+                <section class="queue-section">
+                    <div class="section-heading queue-heading">
+                        <div>
+                            <h2>File d'analyse</h2>
+                            <p>Chaque carte affiche le diagnostic, les risques et le bouton de reparation.</p>
+                        </div>
+                        <div class="queue-toolbar">
+                            <button class="btn btn-secondary" id="analyzeAllBtn" type="button">Reanalyser tout</button>
+                            <button class="btn btn-primary" id="repairAllBtn" type="button">Reparer tout</button>
+                        </div>
+                    </div>
+                    <div class="queue" id="queue"></div>
+                </section>
+            </section>
+
+            <aside class="info-panel">
+                <div class="panel-card">
+                    <h3>Formats pris en charge</h3>
+                    <div class="supported-types">
+                        <span class="type-badge badge-video">Videos</span>
+                        <span class="type-badge badge-pdf">PDF</span>
+                        <span class="type-badge badge-word">Word</span>
+                        <span class="type-badge badge-excel">Excel</span>
+                        <span class="type-badge badge-image">Images</span>
+                        <span class="type-badge badge-archive">Archives</span>
+                        <span class="type-badge badge-document">Documents texte</span>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <h3>Ce que montre le rapport</h3>
+                    <ul class="panel-list">
+                        <li>Type declare, type detecte et niveau de confiance</li>
+                        <li>Niveau de corruption et problemes identifies</li>
+                        <li>Metadonnees techniques utiles avant reparation</li>
+                        <li>Recommandations pour la meilleure strategie</li>
+                    </ul>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-head">
+                        <h3>Etat de la file</h3>
+                        <button class="btn btn-secondary panel-btn" id="refreshStatsBtn" type="button">Actualiser</button>
+                    </div>
+                    <div class="dashboard-grid" id="queueStats"></div>
+                    <div id="dashboardCharts" class="chart-stack"></div>
+                </div>
+
+                <div class="panel-card">
+                    <h3>Taux de reussite</h3>
+                    <div id="dashboardTypes" class="dashboard-list"></div>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-head">
+                        <h3>Historique recent</h3>
+                    </div>
+                    <div class="history-filters">
+                        <input id="historySearch" class="history-input" type="search" placeholder="Rechercher un fichier ou un type">
+                        <select id="historyKind" class="history-select">
+                            <option value="">Tous les evenements</option>
+                            <option value="analysis">Analyses</option>
+                            <option value="repair">Reparations</option>
+                        </select>
+                        <select id="historyStatus" class="history-select">
+                            <option value="">Tous les statuts</option>
+                            <option value="success">Succes</option>
+                            <option value="failed">Echec</option>
+                        </select>
+                    </div>
+                    <div id="historyList" class="history-list"></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="/js/websocket.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
