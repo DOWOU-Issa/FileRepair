@@ -212,19 +212,6 @@ http://localhost:8080
 - Export de rapports PDF ou CSV
 - Nettoyage automatique des anciens fichiers
 
-## Conseils Pour GitHub
-
-Ne pas versionner les fichiers generes :
-
-```gitignore
-node_modules/
-uploads/
-repaired/
-logs/
-temp/
-.env
-```
-
 ## Licence
 
 Ce projet est distribue sous licence MIT. Voir le fichier `LICENSE`.
